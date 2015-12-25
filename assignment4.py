@@ -15,4 +15,8 @@ def quantization(sample, sf, ba, QCa, QCb):
         The uniformly quantized sample.
     """
 
-    # Your code goes here
+    #
+    q = np.floor(np.multiply(((np.multiply(QCa,(sample/sf)))+QCb),np.power(2.0,(ba-1))))
+    return q
+
+

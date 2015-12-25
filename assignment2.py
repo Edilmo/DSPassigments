@@ -1,17 +1,26 @@
 
-from scipy import signal
+import numpy as np
 
 def prototype_filter():
     """ ASSIGNMENT 2
 
-        Compute the prototype filter used in subband coding. The filter
-        is a 512-point lowpass FIR h[n] with bandwidth pi/64 and stopband
-        starting at pi/32
+        This function compute the prototype filter h[n] with
+        following characteristics:
 
-        You should use the remez routine (signal.remez()). See
-        http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.remez.html
+        - Each subband filter is based on prototype filter h[n] with the following characteristics:
+            * Low-pass filter
+            * Bandwidth fs/32
+            * Cutoff frequency of fs/64 at -3dB
+            * FIR
+
+        Returns:
+        h[n]
     """
 
-    # Your code goes here
+    # You can use the remez routine. The documentation can be found at
+    # http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.remez.html
+    from scipy.signal import remez
+
+    return remez(512, [0.0, (1.0/(128.0*2.0)), (1.0/(32.0*2.0)), (1.0/2.0)], [2.0, 0.0])
 
 

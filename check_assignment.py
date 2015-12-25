@@ -4,20 +4,24 @@ from scipy.io import wavfile
 
 try:
     from assignment1 import *
-except:
+except Exception as ie1:
     print 'Assignment 1 files not found.'
+    print ie1.message
 try:
     from assignment2 import *
-except:
+except Exception as ie2:
     print 'Assignment 2 files not found.'
+    print ie2.message
 try:
     from assignment3 import *
-except:
+except Exception as ie3:
     print 'Assignment 3 files not found.'
+    print ie3.message
 try:
     from assignment4 import *
-except:
+except Exception as ie4:
     print 'Assignment 4 files not found.'
+    print ie4.message
 
 
 def check_assignment1():
@@ -209,28 +213,32 @@ if __name__ == "__main__":
     print '*** Check assignment 1 : Scaled FFT in dB ***'
     try:
         check_assignment1()
-    except:
+    except Exception as e1:
         print 'Exception occured while checking assignment 1.'
+        print e1.message
     print '*** Done. ***\n'
 
     print '*** Check assignment 2 : Prototype filter design ***'
     try:
         check_assignment2()
-    except:
+    except Exception as e2:
         print 'Exception occured while checking assignment 2.'
+        print e2.message
     print '*** Done. ***\n'
 
     print '*** Check assignment 3 : Subband filtering ***'
     try:
         check_assignment3()
-    except:
+    except Exception as e3:
         print 'Exception occured while checking assignment 3.'
+        print e3.message
     print '*** Done. ***\n'
 
     print '*** Check assignment 4 : Quantization ***'
     try:
         check_assignment4()
-    except:
+    except Exception as e4:
         print 'Exception occured while checking assignment 4.'
+        print e4.message
     print '*** Done. ***\n'
 
